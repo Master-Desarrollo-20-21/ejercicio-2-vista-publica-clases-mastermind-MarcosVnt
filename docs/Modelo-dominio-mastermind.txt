@@ -1,0 +1,75 @@
+@startuml
+
+class Mastermind {
+ void play()
+ 
+(static) main()
+}
+
+class Combination {
+    validate(combination)
+    compare(combination)
+    Resume()
+}
+
+class Game{
+    setSecrectCombiantion()
+    isWinner()
+    isLooser()
+    isResumed()
+    
+}
+
+class Player {
+    attemp()
+
+}
+
+
+enum Success {
+    Black
+    White
+}
+
+enum Color {
+    Red
+    Blue
+    Yellow
+    Green
+    Orange
+    Purple
+}
+
+class Board{
+    comprobateCombination(combination)
+   
+}
+
+class Attempt{
+   void attempt()
+   proporseCombination()
+   getResult()
+}
+
+
+Mastermind *--> Game 
+Mastermind *--> Board
+
+
+Game *--> Board
+Game *--> Player
+
+Player *--> "1..n" Attempt
+
+Attempt --> Board
+
+Board --> SecretCombination
+Board --> "0..4" Success
+Board --> Combination
+
+Combination <|-- SecretCombination
+Combination *--> "4" Color
+
+
+
+@enduml
